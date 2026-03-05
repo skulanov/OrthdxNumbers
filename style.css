@@ -31,10 +31,25 @@ header {
 }
 
 header h1 {
-    font-size: 1.5rem;
-    font-weight: 500;
+    /* Запрещаем перенос текста на новую строку */
+    white-space: nowrap;
+    
+    /* 
+       Функция clamp делает шрифт адаптивным:
+       1.2rem — минимальный размер (для самых маленьких телефонов)
+       5.5vw  — "идеальный" размер (5.5% от ширины экрана)
+       2.5rem — максимальный размер (для компьютеров)
+    */
+    font-size: clamp(1.2rem, 5.5vw, 2.5rem);
+    
+    font-weight: 700;
     margin-bottom: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    
+    /* Центрируем и ограничиваем, чтобы не выходило за края */
+    width: 100%;
+    overflow: hidden; 
+    text-align: center;
 }
 
 .mode-selector {
